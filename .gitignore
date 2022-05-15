@@ -1,0 +1,16 @@
+# Compiled Python bytecode
+*.py[cod]
+
+# Build data
+*.egg-info
+
+# Caches
+.*_cache
+.tox
+.coverage
+
+# Pipenv
+Pipfile*
+
+# VS Code
+.vscode

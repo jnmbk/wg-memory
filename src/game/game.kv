@@ -1,7 +1,9 @@
 FloatLayout:
-    AnchorLayout:
-        anchor_x: "center"
-        anchor_y: "center"
+    GridLayout:
+        id: grid
+        cols: 6
 
-        Label:
-            text: "Hello World"
+    Label:
+        id: game_over_widget
+        opacity: 0
+        text: "Game Over"

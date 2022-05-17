@@ -8,6 +8,7 @@
 .*_cache
 .tox
 .coverage
+cov.xml
 
 # Pipenv
 Pipfile*

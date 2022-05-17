@@ -9,9 +9,9 @@ from kivy.logger import Logger
 @dataclass
 class Card:
     name: str
-    flip_hook: Callable = lambda: None
-    unflip_hook: Callable = lambda: None
-    disable_hook: Callable = lambda: None
+    flip_hook: Callable[[], None] = lambda: None
+    unflip_hook: Callable[[], None] = lambda: None
+    disable_hook: Callable[[], None] = lambda: None
     is_disabled: bool = False
     is_flipped: bool = False
     is_matched: bool = False
@@ -35,23 +35,23 @@ class Card:
         return obj.name == self.name
 
 
-class CardBox(UserList):
+class CardBox(UserList[Card]):
     def __contains__(self, obj):
         return any(obj.name == i.name for i in self.data)
 
 
 class Controller:
     def __init__(self):
-        self.game_over_hook: Callable = lambda: None
+        self.game_over_hook: Callable[[], None] = lambda: None
         self._reset()
 
     def _reset(self):
-        self.grid: CardBox[Card] = CardBox()
-        self.hand: CardBox[Card] = CardBox()
+        self.grid = CardBox()
+        self.hand = CardBox()
         self.move_count = 0
 
     def _generate_grid(self):
-        self.grid = [Card(i) for i in "ABCDEFGHJKLMNPR" * 2]
+        self.grid = CardBox(Card(i) for i in "ABCDEFGHJKLMNPR" * 2)
         random.shuffle(self.grid)
         Logger.debug(f"App: Generated grid={[i.name for i in self.grid]}")
 

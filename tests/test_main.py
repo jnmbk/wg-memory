@@ -1,5 +1,3 @@
-from kivy.logger import LOG_LEVELS, Logger
-
 from game.controller import Card, CardBox, Controller
 from game.main import Game
 
@@ -33,10 +31,11 @@ def make_exact_moves(c: Controller):
 
 
 def test_game():
-    g = Game()
+    Game()
 
 
 def test_controller():
+    # from kivy.logger import LOG_LEVELS, Logger
     # Logger.setLevel(LOG_LEVELS["debug"])
     c = Controller()
     c.setup()

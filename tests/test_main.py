@@ -44,6 +44,7 @@ def test_controller():
     assert len(c.grid) == 30
     make_bad_moves(c)
     make_exact_moves(c)
+    assert len(c.hand) == 0
     cheat_to_win(c)
     assert all(i.is_disabled for i in c.grid)
 

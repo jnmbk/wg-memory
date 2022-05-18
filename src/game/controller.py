@@ -80,6 +80,7 @@ class Controller:
             if exact_card_in_hand:
                 Logger.debug("App: Found exact card in hand")
                 card.unflip()
+                self.hand.clear()
             else:
                 for i in self.hand:
                     i.disable()

@@ -14,7 +14,7 @@ hf{{"len(hand) == 2"}}
 m --> hf
 hf -- True --> hft[unflip all in hand] --> hft2[remove all in hand] --> sc
 hf -- False --> sc
-ec{{exact card in hand}} -- True --> ufc["unflip(card)"] --> m
+ec{{exact card in hand}} -- True --> ufc["unflip(card)"] --> uh
 ec -- False --> ua[disable all cards in hand]
 u["unflip all in hand"]
 goc{{all cards in game are disabled}} -- True --> e([End])

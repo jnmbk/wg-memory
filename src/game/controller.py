@@ -1,7 +1,7 @@
 import random
 from collections import UserList
 from dataclasses import dataclass
-from typing import Callable
+from typing import TYPE_CHECKING, Callable
 
 from kivy.logger import Logger
 
@@ -35,7 +35,13 @@ class Card:
         return obj.name == self.name
 
 
-class CardBox(UserList[Card]):
+if TYPE_CHECKING:  # pragma: no cover
+    BaseUserList = UserList[Card]
+else:
+    BaseUserList = UserList
+
+
+class CardBox(BaseUserList):
     def __contains__(self, obj):
         return any(obj.name == i.name for i in self.data)
 

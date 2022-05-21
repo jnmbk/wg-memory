@@ -3,6 +3,8 @@
 
 # Build data
 *.egg-info
+.buildozer
+bin
 
 # Caches
 .*_cache

@@ -38,4 +38,8 @@ c2 -- False --> m
 ## Running
     python -m game.main
 
+## Building for Android
+    pip install buildozer
+    buildozer android debug deploy run
+
 ![Tests](https://github.com/jnmbk/wg-memory/actions/workflows/tests.yml/badge.svg)
